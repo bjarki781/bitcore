@@ -4,53 +4,54 @@ var hex = function(hex) {
   return new Buffer(hex, 'hex');
 };
 
+// No specific testnet set up for SMLY so
+// using same params for both networks
 exports.livenet = {
-  name: 'livenet',
-  magic: hex('fda4dc6c'),
-  addressVersion: 0x17,
-  privKeyVersion: 128,
-  P2SHVersion: 5,
-  hkeyPublicVersion: 0x0488b21e,
-  hkeyPrivateVersion: 0x0488ade4,
-  genesisBlock: {
-    hash: hex('8e7ab272e47aabf7e002ad2662a9b336d5dd9685485b82af0449493909108e2a'),
-    merkle_root: hex('6921227f5646bd8e52b664da52480621ddc5fc62ec39e7420ce9f0d2e8e55789'),
-    height: 0,
-    nonce: 538548,
-    version: 1,
-    prev_hash: buffertools.fill(new Buffer(32), 0),
-    timestamp: 1390598806,
-    bits: '1e0fffff',
-  },
-  dnsSeeds: [
-    'seed.aur.co.vu'
-  ],
-  defaultClientPort: 12340
-};
-
-exports.mainnet = exports.livenet;
-
-exports.testnet = {
   name: 'testnet',
-  magic: hex('0b110907'),
-  addressVersion: 0x6f,
+  magic: hex('fbc0b6db'),
+  addressVersion: 0x19,
   privKeyVersion: 239,
   P2SHVersion: 196,
   hkeyPublicVersion: 0x043587cf,
   hkeyPrivateVersion: 0x04358394,
   genesisBlock: {
-    hash: hex('43497FD7F826957108F4A30FD9CEC3AEBA79972084E90EAD01EA330900000000'),
-    merkle_root: hex('3BA3EDFD7A7B12B27AC72C3E67768F617FC81BC3888A51323A9FB8AA4B1E5E4A'),
+    hash: hex('fd542373994c9d9b7769b978c0f2f2732812d2bb01e2bd1161d1c6f64c730f66'),
+    merkle_root: hex('8bec68a7adac5d2b25c6b2f9a1c5825a89e12718a34e73ea769c399cc31e44e964'),
     height: 0,
-    nonce: 414098458,
+    nonce: 386703170,
     version: 1,
     prev_hash: buffertools.fill(new Buffer(32), 0),
-    timestamp: 1296688602,
-    bits: 486604799,
+    timestamp: 1408974288,
+    bits: 504365040,
   },
   dnsSeeds: [
-    'testnet-seed.bitcoin.petertodd.org',
-    'testnet-seed.bluematt.me'
+    'smileyco.in',
+    'dnsseed.smileyco.in'
   ],
-  defaultClientPort: 18333
+  defaultClientPort: 11337
+};
+exports.mainnet = exports.livenet;
+exports.testnet = {
+  name: 'testnet',
+  magic: hex('fbc0b6db'),
+  addressVersion: 0x19,
+  privKeyVersion: 239,
+  P2SHVersion: 196,
+  hkeyPublicVersion: 0x043587cf,
+  hkeyPrivateVersion: 0x04358394,
+  genesisBlock: {
+    hash: hex('fd542373994c9d9b7769b978c0f2f2732812d2bb01e2bd1161d1c6f64c730f66'),
+    merkle_root: hex('8bec68a7adac5d2b25c6b2f9a1c5825a89e12718a34e73ea769c399cc31e44e964'),
+    height: 0,
+    nonce: 386703170,
+    version: 1,
+    prev_hash: buffertools.fill(new Buffer(32), 0),
+    timestamp: 1408974288,
+    bits: 504365040,
+  },
+  dnsSeeds: [
+    'smileyco.in',
+    'dnsseed.smileyco.in'
+  ],
+  defaultClientPort: 11337
 };
